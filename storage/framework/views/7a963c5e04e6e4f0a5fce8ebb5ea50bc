@@ -1,0 +1,33 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-default">
+				<div class="panel-heading">ディレクトリ</div>
+				<div class="panel-body">
+                    <?php if(isset($parent)): ?>
+                    <p><a href="./movie?fp=<?php echo e($parent['path']); ?><?php echo e(isset($params) ? $params : ''); ?>">[親ディレクトリに戻る]</a><p>
+                    <?php endif; ?>
+                <?php foreach($dir_list as $dir): ?>
+                    <p><a href="./movie?fp=<?php echo e($dir['path']); ?><?php echo e(isset($params) ? $params : ''); ?>"><?php echo e($dir['basename']); ?></a><p>
+                <?php endforeach; ?>
+				</div>
+		    </div>
+			<div class="panel panel-default">
+				<div class="panel-heading">ファイル</div>
+				<div class="panel-body">
+                <?php foreach($file_list as $file): ?>
+                    <?php if($file['extension'] === 'mp4'): ?>
+                    <p><a href="./movie/play?fp=<?php echo e($file['path']); ?><?php echo e(isset($params) ? $params : ''); ?>"><?php echo e($file['basename']); ?></a><p>
+                    <?php else: ?>
+                    <p><?php echo e($file['basename']); ?><p>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('movie/movie', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

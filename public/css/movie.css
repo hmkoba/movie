@@ -1,0 +1,26 @@
+button.speed {
+    width: 90px;
+    font-size: 20px;
+}
+
+button.speed:active {
+   padding-top:6px;
+    padding-bottom:4px;
+    border:1px solid #334c66;
+    background-color:#69c;
+    color:#e0ebf5;
+    -webkit-box-shadow:inset 0px 0px 8px #334c66;
+    -moz-box-shadow:inset 0px 0px 2px #3a6da0;
+    box-shadow:inset 0px 0px 2px #3a6da0;
+}
+
+table.movie {
+    table-layout: fixed;
+    border-spacing: 10px;
+}
+table.movie td.video {
+    width: 60%;
+}
+table.movie td.func {
+    width: 30%;
+}
